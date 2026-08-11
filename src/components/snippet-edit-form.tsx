@@ -1,12 +1,15 @@
 'use client';
-import type { Snippet } from '@prisma/client';
 import Editor from '@monaco-editor/react';
 import {useState } from 'react';
 import * as actions from '@/actions';
 
 
 interface SnippetEditFormProps {
-    snippet: Snippet;
+    snippet: {
+        id: number;
+        title: string;
+        code: string;
+        };
 }
 
 export default function SnippetEditForm({snippet}: SnippetEditFormProps) {
