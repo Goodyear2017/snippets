@@ -1,10 +1,11 @@
 
 import Link from 'next/link';
 import { db } from '@/db';
+import type { Snippet } from '@prisma/client';
 
 export const revalidate = 3;
 export default async function Home() {
-  const snippets=await db.snippet.findMany();
+  const snippets: Snippet[] = await db.snippet.findMany();
 
   const renderSnippets = snippets.map((snippet) => {
       return (
