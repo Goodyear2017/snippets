@@ -7,7 +7,13 @@ export const revalidate = 3;
 export default async function Home() {
   const snippets = await db.snippet.findMany();
 
-  const renderSnippets = snippets.map((snippet) => {
+  const renderSnippets = snippets.map(
+    (snippet: {
+      id: number;
+      title: string;
+      code: string;
+
+    }) => {
       return (
         <Link key ={snippet.id} 
         href={`/snippets/${snippet.id}`}
